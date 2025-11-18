@@ -1,4 +1,3 @@
-'''
 export interface Message {
   id: string;
   text: string;
@@ -47,4 +46,3 @@ export interface BusinessProfile {
   services: Service[];
   bookings: Booking[];
 }
-'''
