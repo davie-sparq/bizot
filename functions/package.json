@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "A simple Genkit app to generate fantasy characters",
   "main": "index.js",
+  "engines": {
+    "node": "22"
+  },
   "scripts": {
     "build": "npx tsc",
     "genkit:dev": "npx genkit start -- npx tsx --watch index.ts"
