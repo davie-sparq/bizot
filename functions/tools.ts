@@ -1,4 +1,4 @@
-import { defineTool } from 'genkit';
+import { defineTool } from './src/genkit-adapter';
 import { z } from 'zod';
 
 // Define the tool for booking a generic appointment
@@ -18,7 +18,7 @@ export const bookAppointment = defineTool(
             message: z.string(),
         }),
     },
-    async (input) => {
+    async (input: any) => {
         console.log('TOOL: Running bookAppointment with input:', input);
 
         // In a real application, you would save this to a database.
@@ -49,7 +49,7 @@ export const makeRestaurantReservation = defineTool(
             message: z.string(),
         }),
     },
-    async (input) => {
+    async (input: any) => {
         console.log('TOOL: Running makeRestaurantReservation with input:', input);
 
         // In a real application, you would save this to a database.

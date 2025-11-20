@@ -1,0 +1,15 @@
+{
+  "name": "bizot-placeholder",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p build && echo '<!doctype html><meta charset=\"utf-8\"><title>Bizot</title><h1>Bizot placeholder</h1>' > build/index.html",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

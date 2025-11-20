@@ -80,7 +80,8 @@ exports.chat = (0, flow_1.defineFlow)({
         text: zod_1.z.string(),
         toolRequest: zod_1.z.any().optional(),
     }),
-}, async ({ query, agentId, history = [] }) => {
+}, async (args) => {
+    const { query, agentId, history = [] } = args;
     // 1. Fetch the agent from Firestore
     const agentDoc = await db.collection('agents').doc(agentId).get();
     if (!agentDoc.exists) {

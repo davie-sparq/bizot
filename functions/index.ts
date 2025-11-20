@@ -1,5 +1,4 @@
-import { googleAI } from '@genkit-ai/googleai';
-import { configure, defineFlow, generate } from '@genkit-ai/flow';
+import { googleAI, configure, defineFlow, generate } from './src/genkit-adapter';
 import { z } from 'zod';
 import * as admin from 'firebase-admin';
 import { bookAppointment, makeRestaurantReservation } from './tools';
@@ -53,7 +52,8 @@ export const chat = defineFlow(
             toolRequest: z.any().optional(),
         }),
     },
-    async ({ query, agentId, history = [] }) => {
+    async (args: { query: string; agentId: string; history?: { role: 'user'|'model'; content: string }[] }) => {
+        const { query, agentId, history = [] } = args;
         // 1. Fetch the agent from Firestore
         const agentDoc = await db.collection('agents').doc(agentId).get();
         if (!agentDoc.exists) {
